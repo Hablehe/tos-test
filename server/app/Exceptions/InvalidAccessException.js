@@ -6,7 +6,11 @@ class InvalidAccessException extends LogicalException {
   /**
    * Handle this exception by itself
    */
-  // handle () {}
+  handle (error, {response}) {
+    return response.status(403).json({
+      error:'incalia access to resource',
+    });
+  }
 }
 
 module.exports = InvalidAccessException
