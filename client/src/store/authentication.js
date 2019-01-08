@@ -4,13 +4,13 @@ import HTTP from '../http';
 export default {
   namespaced: true,
   state: {
-    registerEmail: null,
-    registerPassword: null,
+    registerEmail: 'null',
+    registerPassword: 'null',
     registerError: null,
     loginEmail: null,
     loginPassword: null,
     loginError: null,
-    then: null,
+    token: null,
   },
   actions: {
     logout({ commit }) {
@@ -18,6 +18,7 @@ export default {
       router.push('/login');
     },
     register({ commit, state }) {
+      console.log('client');
       commit('setRegisterError', null);
       return HTTP().post('/auth/register', {
         email: state.registerEmail,

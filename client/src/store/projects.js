@@ -9,7 +9,7 @@ export default {
   },
   actions: {
     fetchProjects({
-      commit
+      commit,
     }) {
       return HTTP().get('/projects')
         .then(({
@@ -20,11 +20,11 @@ export default {
     },
     createProject({
       commit,
-      state
+      state,
     }) {
       return HTTP().post('/projects', {
-          title: state.newProjectName,
-        })
+        title: state.newProjectName,
+      })
         .then(({
           data,
         }) => {
@@ -40,6 +40,9 @@ export default {
     },
     appendProject(state, project) {
       state.projects.push(project);
+    },
+    setProjects(state, projects) {
+      state.projects = projects;
     },
   },
 };

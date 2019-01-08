@@ -1,5 +1,9 @@
 <template>
   <Panel title="Projects">
+    <div v-for="project in projects" :key="project.id">
+    {{project.title}}
+    <v-icon>edit</v-icon>
+    </div>
     <v-layout row wrap>
       <v-flex xs8>
         <v-text-field
@@ -25,13 +29,17 @@
 import { mapActions, mapMutations, mapState } from 'vuex';
 
 export default {
+  mounted() {
+    this.fetchProjects();
+  },
   computed: {
-    ...mapState('projects', ['newProjectName']),
+    ...mapState('projects', ['newProjectName', 'projects']),
   },
   methods: {
     ...mapMutations('projects', ['setNewProjectName']),
     ...mapActions('projects', [
       'createProject',
+      'fetchProjects',
     ]),
   },
 };
