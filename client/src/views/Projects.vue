@@ -5,7 +5,7 @@
         <Projects></Projects>
       </v-flex>
 
-      <v-flex xs8 clss="pl-4">
+      <v-flex xs8 class="pl-4">
         <Panel title="Tasks">
           <h1>TESting</h1>
         </Panel>
